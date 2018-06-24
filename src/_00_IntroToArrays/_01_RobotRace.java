@@ -10,10 +10,10 @@ public class _01_RobotRace {
 	//1. make a main method
 	public static void main(String[] args) {
 		//2. create an array of 5 robots.
-		Robot[] robots = new Robot[5];
+		Robot[] robots = new Robot[8];
 		//3. use a for loop to initialize the robots.
 			for (int i = 0; i < robots.length; i++) {
-				robots[i] = new Robot();
+				robots[i] = new Robot("june");
 				robots[i].setX(50 + (i * 100));
 				robots[i].setY(500);
 				robots[i].setSpeed(1000);
@@ -26,10 +26,24 @@ public class _01_RobotRace {
 			boolean top = false;
 			while (top == false) {
 			for (int i = 0; i < robots.length; i++) {
+				robots[i].turn(10);
 				robots[i].move(random.nextInt(50));
 				if (robots[i].getY() <= 0) {
 					top = true;
 					robots[i].turn(2000);
+				}
+				int rand = random.nextInt(4);
+				if (rand == 0) {
+					robots[i].changeRobot("https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/05/12/104466932-PE_Color.240x240.jpg?v=1494613853");
+				}
+				if (rand == 1) {
+					robots[i].changeRobot("http://image.oregonlive.com/home/olive-media/width600/img/trending/photo/2017/12/15/paijpg-452ba423f561a859.jpg");
+				}
+				if (rand == 2) {
+					robots[i].changeRobot("http://www.jointheleague.org/wp-content/uploads/2014/12/dave.png");
+				}
+				if (rand == 3) {
+					robots[i].changeRobot("http://www.jointheleague.org/wp-content/uploads/2017/04/Vic_WINTRISS.png");
 				}
 			}
 			}
